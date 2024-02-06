@@ -1,21 +1,27 @@
 package config
 
 import (
-	"errors"
+	"fmt"
 
 	"gorm.io/gorm"
 )
 
 var (
-	db *gorm.DB
+	db     *gorm.DB
 	logger *Logger
 )
 
 func Init() error {
-	// db = gorm.Open("sqlite3", "test.db")
-	// db.AutoMigrate(&schemas.Opening{})
-	// return nil
-	return errors.New("database connection failed")
+	var err error
+	db, err = InitializeSQLite()
+	if err != nil {
+		return fmt.Errorf("error initializing sqlite: %v", err)
+	}
+	return nil
+}
+
+func GetSQLite() *gorm.DB {
+	return db
 }
 
 func GetLogger(prefix string) *Logger {
