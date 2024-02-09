@@ -1,7 +1,7 @@
 # golang-opp
 
-stack:
+## stack:
 
-- Gin Gonic (https://gin-gonic.com/)
-- GORM (https://gorm.io/)
+- [Gin Gonic](https://gin-gonic.com/)
+- [GORM](https://gorm.io/)
 - SQLite
